@@ -9,6 +9,9 @@
     "lint": "next lint --ext tsx,ts,js,jsx -c ./.eslintrc.json --ignore-path ./.eslintignore ./app"
   },
   "dependencies": {
+    "@clerk/nextjs": "^4.29.1",
+    "@radix-ui/react-dialog": "^1.0.5",
+    "@radix-ui/react-separator": "^1.0.3",
     "@radix-ui/react-slot": "^1.0.2",
     "@typescript-eslint/eslint-plugin": "^6.17.0",
     "@uploadthing/react": "^6.0.2",
