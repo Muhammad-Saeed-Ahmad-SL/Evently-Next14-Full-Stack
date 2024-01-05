@@ -18,7 +18,6 @@ export default function Home() {
               <Link href={'#events'}>Explore Now</Link>
             </Button>
           </div>
-
           <Image
             src={'/assets/images/hero.png'}
             alt='Hero Image'
