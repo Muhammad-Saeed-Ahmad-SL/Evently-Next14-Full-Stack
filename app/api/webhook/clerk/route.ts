@@ -1,11 +1,9 @@
-/* eslint-disable no-console */
 import { Webhook } from 'svix';
 import { headers } from 'next/headers';
 import { WebhookEvent } from '@clerk/nextjs/server';
+import { createUser, deleteUser, updateUser } from '@/lib/actions/user.actions';
 import { clerkClient } from '@clerk/nextjs';
 import { NextResponse } from 'next/server';
-
-import { createUser, deleteUser, updateUser } from '@/lib/actions/user.actions';
 
 export async function POST(req: Request) {
   // You can find this in the Clerk Dashboard -> Webhooks -> choose the webhook
@@ -75,9 +73,10 @@ export async function POST(req: Request) {
         },
       });
     }
-    return NextResponse.json({ message: 'Ok', user: newUser });
+
+    return NextResponse.json({ message: 'OK', user: newUser });
   }
-  // UPDATE USER
+
   if (eventType === 'user.updated') {
     const { id, image_url, first_name, last_name, username } = evt.data;
 
@@ -92,7 +91,7 @@ export async function POST(req: Request) {
 
     return NextResponse.json({ message: 'OK', user: updatedUser });
   }
-  // DELETE USER
+
   if (eventType === 'user.deleted') {
     const { id } = evt.data;
 
